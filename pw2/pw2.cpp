@@ -35,9 +35,9 @@ int main() {
         return 0;
     }
 
-    for (int x = n; x <= m; x++) {
-        for (int a = 1; squareNumber(a) < x; a++) {
-            int b = sqrt(x - squareNumber(a));
+    for (int x = n; x <= m; x++) { //loops through all numbers in range between og n<>m
+        for (int a = 1; squareNumber(a) < x; a++) { // this to ensure a^2 stays smaller than x, so that x - a^2 later remains valid for sqrt()
+            int b = round(sqrt(x - squareNumber(a))); //getting integer back here. round() just to roundup as a safenet against some wierd non integer values
             if (sumOfTwoSquareNumbers(a, b) == x) {
                 cout << x << " ";
                 break;
