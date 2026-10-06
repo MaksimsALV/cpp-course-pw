@@ -30,6 +30,11 @@ int main() {
         return 0;
     }
 
+    if (n > m) {
+        cout << "input violation: first number cannot be larger than second" << endl;
+        return 0;
+    }
+
     for (int x = n; x <= m; x++) {
         for (int a = 1; squareNumber(a) < x; a++) {
             int b = sqrt(x - squareNumber(a));
