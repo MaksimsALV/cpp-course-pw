@@ -9,3 +9,6 @@ add_executable(pw2 pw2/pw2.cpp)
 add_executable(pw3 pw3/pw3.cpp)
 add_executable(pw4 pw4/pw4.cpp)
 add_executable(pw5 pw5/pw5.cpp)
+
+#lpw
+add_executable(lpw lpw/main.cpp)
