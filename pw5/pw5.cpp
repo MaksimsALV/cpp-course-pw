@@ -25,8 +25,7 @@ int main() {
   string file = "f.txt";
   string dummyText = "Hello! My name is Bill.";
   string content;
-  int numb[5];
-  int i = 0;
+  int numb[5] = {0};//initialization on all elementss to 0 , to  avoid garbage values. this also needed for line 56 numb[number]++ to count correctly
   int number;
 
   write.open(file, ios::app);
@@ -52,13 +51,18 @@ int main() {
   cout << "this is how many letters long every found word is: " << endl;
   write << "Length\tCount" << endl;
 
-  while (i < 5 && read >> content) {
+  while (read >> content) {
     number = lettersCounter(content);
-    numb[i] = number;
-    write << i + 1 << "\t" << numb[i] << endl;
-    i++;
+    numb[number]++;
   }
   read.close();
+  write.close();
+
+  write.open("f1.txt");
+  write << "Length\tCount" << endl;
+  for (int len = 1; len <= 5; len++) {
+    write << len << "\t" << numb[len] << endl;
+  }
   write.close();
 
   read.open("f1.txt");
