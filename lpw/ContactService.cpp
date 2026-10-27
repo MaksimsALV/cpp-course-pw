@@ -1,13 +1,24 @@
 //
 // Created by user on 27-Oct-26.
 //
-#ifndef CPP_COURSE_LAB_WORKS_UNIQUEIDGENERATOR_H
-#define CPP_COURSE_LAB_WORKS_UNIQUEIDGENERATOR_H
 
-#endif //CPP_COURSE_LAB_WORKS_UNIQUEIDGENERATOR_H
-
+#include <iostream>
 #include <string>
+#include "Contact.h"
 using namespace std;
+
+string generateUniqueId(); //declaring so that addContact() func can reach it for id
+
+Contact addContact() { //helper func for adding contact to the Contact obj
+    string id = generateUniqueId();
+    string firstName;
+    string lastName;
+    string email;
+    string phoneNumber;
+
+    cin >> firstName >> lastName >> email >> phoneNumber;
+    return Contact(id, firstName, lastName, email, phoneNumber);
+}
 
 string generateUniqueId() {
     const string CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";

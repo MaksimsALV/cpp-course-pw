@@ -17,6 +17,7 @@ using namespace std;
 //     return id;
 //   };
 // };
+Contact addContact(); //declare so that it can be reached
 
 int main() {
   Contact contact = addContact();

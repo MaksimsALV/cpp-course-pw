@@ -13,4 +13,6 @@ add_executable(pw5 pw5/pw5.cpp)
 #lpw
 add_executable(lpw lpw/main.cpp
         lpw/Contact.h
-        lpw/tools/UniqueIdGenerator.h)
+        lpw/tools/UniqueIdGenerator.h
+        lpw/ContactService.cpp
+        lpw/ContactService.cpp)
