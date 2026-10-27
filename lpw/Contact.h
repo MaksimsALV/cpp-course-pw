@@ -1,12 +1,14 @@
 //
 // Created by user on 27-Oct-26.
 //
-#include <string>
-using namespace std;
 #ifndef CPP_COURSE_LAB_WORKS_CONTACT_H
 #define CPP_COURSE_LAB_WORKS_CONTACT_H
 
 #endif //CPP_COURSE_LAB_WORKS_CONTACT_H
+
+#include <string>
+#include "tools/UniqueIdGenerator.h"
+using namespace std;
 
 string generateUniqueId(); //declaring so that addContact() func can reach it for id
 
