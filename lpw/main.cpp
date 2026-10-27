@@ -22,6 +22,9 @@ public:
   }
 
   //getters
+  string getId() {
+    return id;
+  };
   string getFirstName() {
     return firstName;
   };
@@ -74,11 +77,9 @@ Contact addContact() { //helper func for adding contact to the Contact obj
 
 //large project work - course project - hello world
 int main() {
-  // Contact contact = addContact();
-  //
-  // cout << contact.getFirstName() << " " << contact.getLastName() << " " << contact.getEmail() << " " << contact.getPhoneNumber() << endl;
-  string id = generateUniqueId();
-  cout << id << endl;
+  Contact contact = addContact();
+
+  cout << contact.getId() << " " << contact.getFirstName() << " " << contact.getLastName() << " " << contact.getEmail() << " " << contact.getPhoneNumber() << endl;
 
   return 0;
 }
