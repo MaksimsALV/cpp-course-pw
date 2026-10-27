@@ -2,43 +2,8 @@
 #include <list>
 #include <string>
 #include <random>
+#include "Contact.h" //separate file for Contact class . for readability and code management
 using namespace std;
-
-class Contact {
-private:
-  string id;
-  string firstName;
-  string lastName;
-  string email;
-  string phoneNumber;
-
-public:
-  Contact(string id, string firstName, string lastName, string email, string phoneNumber) { //constructor because of private
-    this->id = id;
-    this->firstName = firstName;
-    this->lastName = lastName;
-    this->email = email;
-    this->phoneNumber = phoneNumber;
-  }
-
-  //getters
-  string getId() {
-    return id;
-  };
-  string getFirstName() {
-    return firstName;
-  };
-  string getLastName() {
-    return lastName;
-  };
-  string getEmail() {
-    return email;
-  };
-  string getPhoneNumber() {
-    return phoneNumber;
-  };
-
-};
 
 // class ContactBook {
 // private:
@@ -64,18 +29,6 @@ string generateUniqueId() {
   return uniqueId;
 }
 
-Contact addContact() { //helper func for adding contact to the Contact obj
-  string id = generateUniqueId();
-  string firstName;
-  string lastName;
-  string email;
-  string phoneNumber;
-
-  cin >> firstName >> lastName >> email >> phoneNumber;
-  return Contact(id, firstName, lastName, email, phoneNumber);
-}
-
-//large project work - course project - hello world
 int main() {
   Contact contact = addContact();
 

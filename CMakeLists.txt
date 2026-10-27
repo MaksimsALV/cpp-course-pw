@@ -11,4 +11,5 @@ add_executable(pw4 pw4/pw4.cpp)
 add_executable(pw5 pw5/pw5.cpp)
 
 #lpw
-add_executable(lpw lpw/main.cpp)
+add_executable(lpw lpw/main.cpp
+        lpw/Contact.h)
