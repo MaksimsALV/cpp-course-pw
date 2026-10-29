@@ -16,14 +16,16 @@ private:
     string lastName;
     string email;
     string phoneNumber;
+    string dateCreated;;
 
 public:
-    Contact(string id, string firstName, string lastName, string email, string phoneNumber) { //constructor because of private
+    Contact(string id, string firstName, string lastName, string email, string phoneNumber, string dateCreated) { //constructor because of private
         this->id = id;
         this->firstName = firstName;
         this->lastName = lastName;
         this->email = email;
         this->phoneNumber = phoneNumber;
+        this->dateCreated = dateCreated;
     }
 
     //getters
@@ -42,5 +44,7 @@ public:
     string getPhoneNumber() {
         return phoneNumber;
     };
-
+    string getDateCreated() {
+        return dateCreated;
+    }
 };
