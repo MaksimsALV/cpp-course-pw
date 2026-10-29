@@ -10,8 +10,7 @@ using namespace std;
 using namespace std::chrono;
 
 string generateUniqueId(); //declaring so that addContact() func can reach it for id
-const auto currentTime = system_clock::now();
-const time_t currentTimeClock = system_clock::to_time_t(currentTime);
+string generateDateCreated();
 
 Contact addContact() { //helper func for adding contact to the Contact obj
     string id = generateUniqueId();
@@ -19,7 +18,7 @@ Contact addContact() { //helper func for adding contact to the Contact obj
     string lastName;
     string email;
     string phoneNumber;
-    string dateCreated = ctime(&currentTimeClock);
+    string dateCreated = generateDateCreated();
 
     cin >> firstName >> lastName >> email >> phoneNumber;
     return Contact(id, firstName, lastName, email, phoneNumber, dateCreated);
@@ -33,4 +32,10 @@ string generateUniqueId() {
         uniqueId += CHARACTERS[rand() % CHARACTERS.length()];
     }
     return uniqueId;
+}
+
+string generateDateCreated() {
+    const auto currentTime = system_clock::now();
+    const time_t currentTimeClock = system_clock::to_time_t(currentTime);
+    return ctime(&currentTimeClock);
 }
