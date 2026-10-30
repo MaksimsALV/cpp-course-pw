@@ -2,6 +2,7 @@
 #include <list>
 #include <string>
 #include "Contact.h" //separate file for Contact class . for readability and code management
+#include "rapidcsv.h"
 using namespace std;
 
 // class ContactBook {
