@@ -11,6 +11,8 @@ using namespace std;
 
 class Contact {
 private:
+    int counter = 0;
+    int number;
     string id;
     string firstName;
     string lastName;
@@ -20,6 +22,7 @@ private:
 
 public:
     Contact(string id, string firstName, string lastName, string email, string phoneNumber, string dateCreated) { //constructor because of private
+        this->number = ++counter;
         this->id = id;
         this->firstName = firstName;
         this->lastName = lastName;
@@ -29,6 +32,9 @@ public:
     }
 
     //getters
+    int getNumber() {
+        return number;
+    };
     string getId() {
         return id;
     };
