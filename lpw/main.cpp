@@ -21,30 +21,30 @@ Contact addContact(); //declare so that it can be reached
 
 int main() {
   //todo menu wip
-  {
-    int choice;
-    //print main menu here, then->
-    do {
-      cout << "type: ";
-      cin >> choice;
-      switch (choice) {
-        case 1: cout << "menu 1 opened" << endl; //open menu 1 here
-          break;
-        case 2: cout << "menu 2 opened" << endl; //open menu 2 here
-          break;
-      }
-      if (choice == 0 || choice > 3) {
-        cout << "restricted input";
-      }
-    }
-    while (choice != 3);
-
-    return 0;
+  // {
+  //   int choice;
+  //   //print main menu here, then->
+  //   do {
+  //     cout << "type: ";
+  //     cin >> choice;
+  //     switch (choice) {
+  //       case 1: cout << "menu 1 opened" << endl; //open menu 1 here
+  //         break;
+  //       case 2: cout << "menu 2 opened" << endl; //open menu 2 here
+  //         break;
+  //     }
+  //     if (choice == 0 || choice > 3) {
+  //       cout << "restricted input";
+  //     }
+  //   }
+  //   while (choice != 3);
+  //
+  //   return 0;
   //todo menu wip end
 
 
   list<Contact> contactsBook;
-  for (int i = 0; i < 1; i++) { //enter 5 contacts in a row
+  for (int i = 0; i < 3; i++) { //enter 5 contacts in a row
     Contact contact = addContact();
     contactsBook.push_back(contact);
   }
@@ -52,6 +52,7 @@ int main() {
   for (Contact contact : contactsBook) {
     cout <<
       contact.getId() << " " <<
+      contact.getUniqueId() << " " <<
       contact.getFirstName() << " " <<
       contact.getLastName() << " " <<
       contact.getEmail() << " " <<

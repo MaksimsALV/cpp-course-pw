@@ -11,9 +11,9 @@ using namespace std;
 
 class Contact {
 private:
-    int counter = 0;
-    int number;
-    string id;
+    inline static int counter = 0; //without static incremental doesnt grow (stays 1), and without inline static doesnt work..
+    int id;
+    string uniqueId;
     string firstName;
     string lastName;
     string email;
@@ -21,9 +21,9 @@ private:
     string dateCreated;;
 
 public:
-    Contact(string id, string firstName, string lastName, string email, string phoneNumber, string dateCreated) { //constructor because of private
-        this->number = ++counter;
-        this->id = id;
+    Contact(string uniqueId, string firstName, string lastName, string email, string phoneNumber, string dateCreated) { //constructor because of private
+        this->id = ++counter;
+        this->uniqueId = uniqueId;
         this->firstName = firstName;
         this->lastName = lastName;
         this->email = email;
@@ -32,11 +32,11 @@ public:
     }
 
     //getters
-    int getNumber() {
-        return number;
-    };
-    string getId() {
+    int getId() {
         return id;
+    };
+    string getUniqueId() {
+        return uniqueId;
     };
     string getFirstName() {
         return firstName;

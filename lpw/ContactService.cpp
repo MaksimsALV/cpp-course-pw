@@ -13,7 +13,7 @@ string generateUniqueId(); //declaring so that addContact() func can reach it fo
 string generateDateCreated();
 
 Contact addContact() { //helper func for adding contact to the Contact obj
-    string id = generateUniqueId();
+    string uniqueId = generateUniqueId();
     string firstName;
     string lastName;
     string email;
@@ -21,7 +21,7 @@ Contact addContact() { //helper func for adding contact to the Contact obj
     string dateCreated = generateDateCreated();
 
     cin >> firstName >> lastName >> email >> phoneNumber;
-    return Contact(id, firstName, lastName, email, phoneNumber, dateCreated);
+    return Contact(uniqueId, firstName, lastName, email, phoneNumber, dateCreated);
 }
 
 string generateUniqueId() {
