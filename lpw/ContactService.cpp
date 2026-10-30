@@ -38,6 +38,6 @@ string generateDateCreated() {
     const auto now = system_clock::now();
     const time_t currentTimeClock = system_clock::to_time_t(now);
     stringstream ss;
-    ss << put_time(localtime(&currentTimeClock), "%Y%m%d_%H%M%S"); //with help of AI had to format the timestamp into string format for other usages. Previously used ctime, and since it returned char not string, couldnt reuse it for CsvService rapidcsv filename saving
+    ss << put_time(localtime(&currentTimeClock), "%Y-%m-%d_%H-%M-%S"); //with help of AI had to format the timestamp into string format for other usages. Previously used ctime, and since it returned hh:mm:ss, couldnt reuse it for CsvService rapidcsv filename saving and couldnt understand how to format ctime (I think you cannot)
     return ss.str(); //returns string
 }
