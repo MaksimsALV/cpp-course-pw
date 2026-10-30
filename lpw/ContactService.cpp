@@ -35,7 +35,9 @@ string generateUniqueId() {
 }
 
 string generateDateCreated() {
-    const auto currentTime = system_clock::now();
-    const time_t currentTimeClock = system_clock::to_time_t(currentTime);
-    return ctime(&currentTimeClock);
+    const auto now = system_clock::now();
+    const time_t currentTimeClock = system_clock::to_time_t(now);
+    stringstream ss;
+    ss << put_time(localtime(&currentTimeClock), "%Y%m%d_%H%M%S"); //with help of AI had to format the timestamp into string format for other usages. Previously used ctime, and since it returned char not string, couldnt reuse it for CsvService rapidcsv filename saving
+    return ss.str(); //returns string
 }

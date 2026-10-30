@@ -2,7 +2,6 @@
 #include <list>
 #include <string>
 #include "Contact.h" //separate file for Contact class . for readability and code management
-#include "rapidcsv.h" //https://github.com/d99kris/rapidcsv
 using namespace std;
 
 // class ContactBook {
@@ -19,6 +18,7 @@ using namespace std;
 //   };
 // };
 Contact addContact(); //declare so that it can be reached
+void exportContactsToCsv(list<Contact> contactsBook);
 
 int main() {
   //todo menu wip
@@ -45,7 +45,7 @@ int main() {
 
 
   list<Contact> contactsBook;
-  for (int i = 0; i < 3; i++) { //enter 5 contacts in a row
+  for (int i = 0; i < 1; i++) { //enter 5 contacts in a row
     Contact contact = addContact();
     contactsBook.push_back(contact);
   }
@@ -60,5 +60,8 @@ int main() {
       contact.getPhoneNumber() << " " <<
       contact.getDateCreated() << endl;
   }
+
+  exportContactsToCsv(contactsBook); //testing saving all contacts to csv using new methodhelper
+
   return 0;
 }
