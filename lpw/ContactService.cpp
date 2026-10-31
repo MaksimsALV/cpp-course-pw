@@ -35,9 +35,9 @@ string generateUniqueId() {
 }
 
 string generateDateCreated() {
-    const auto now = system_clock::now();
-    const time_t currentTimeClock = system_clock::to_time_t(now);
+    auto now = system_clock::to_time_t(system_clock::now()); //https://en.cppreference.com/cpp/chrono
+
     stringstream ss;
-    ss << put_time(localtime(&currentTimeClock), "%Y-%m-%d_%H-%M-%S"); //with help of AI had to format the timestamp into string format for other usages. Previously used ctime, and since it returned hh:mm:ss, couldnt reuse it for CsvService rapidcsv filename saving and couldnt understand how to format ctime (I think you cannot)
+    ss << put_time(localtime(&now), "%Y-%m-%d_%H-%M-%S"); //stringstream and put_time func allows to format date and time string https://en.cppreference.com/cpp/io/manip/put_time
     return ss.str(); //returns string
 }
