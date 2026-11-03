@@ -25,7 +25,8 @@ int main() {
       contact.getLastName() << " " <<
       contact.getEmail() << " " <<
       contact.getPhoneNumber() << " " <<
-      contact.getDateCreated() << endl;
+      contact.getDateCreated() << " " <<
+      contact.getDateUpdated() << endl;
   }
 
   //testing contact removal logic
@@ -39,7 +40,8 @@ int main() {
       contact.getLastName() << " " <<
       contact.getEmail() << " " <<
       contact.getPhoneNumber() << " " <<
-      contact.getDateCreated() << endl;
+      contact.getDateCreated() << " " <<
+      contact.getDateUpdated() << endl;
   }
 
   //testing update contact logic
@@ -53,7 +55,8 @@ int main() {
       contact.getLastName() << " " <<
       contact.getEmail() << " " <<
       contact.getPhoneNumber() << " " <<
-      contact.getDateCreated() << endl;
+      contact.getDateCreated() << " " <<
+      contact.getDateUpdated() << endl;
   }
 
   exportContactsToCsv(contactsBook); //testing saving all contacts to csv using new methodhelper

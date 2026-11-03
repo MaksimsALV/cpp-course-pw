@@ -11,7 +11,7 @@ using namespace std;
 using namespace std::chrono;
 
 string generateUniqueId(); //declaring so that addContact() func can reach it for id
-string generateDateCreated();
+string generateTimestamp();
 
 Contact createContact() { //helper func for adding contact to the Contact obj
     string uniqueId = generateUniqueId();
@@ -19,10 +19,11 @@ Contact createContact() { //helper func for adding contact to the Contact obj
     string lastName;
     string email;
     string phoneNumber;
-    string dateCreated = generateDateCreated();
+    string dateCreated = generateTimestamp();
+    string dateUpdated = generateTimestamp();
 
     cin >> firstName >> lastName >> email >> phoneNumber;
-    return Contact(uniqueId, firstName, lastName, email, phoneNumber, dateCreated);
+    return Contact(uniqueId, firstName, lastName, email, phoneNumber, dateCreated, dateUpdated);
 }
 
 void removeContact(list<Contact>& contactBook, int id) { //https://www.geeksforgeeks.org/cpp/list-erase-function-in-c-stl/
@@ -50,7 +51,8 @@ void updateContact(list<Contact>& contactBook, int id, string firstName, string 
             if (!phoneNumber.empty()) {
                 it->setPhoneNumber(phoneNumber);
             }
-            //todo dateUpdated
+            string dateUpdated = generateTimestamp();
+            it->setDateUpdated(dateUpdated);
             break;
         }
     }
@@ -66,7 +68,7 @@ string generateUniqueId() {
     return uniqueId;
 }
 
-string generateDateCreated() {
+string generateTimestamp() {
     auto now = system_clock::to_time_t(system_clock::now()); //https://en.cppreference.com/cpp/chrono
 
     stringstream ss;

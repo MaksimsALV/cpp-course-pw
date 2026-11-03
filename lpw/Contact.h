@@ -18,10 +18,11 @@ private:
     string lastName;
     string email;
     string phoneNumber;
-    string dateCreated;;
+    string dateCreated;
+    string dateUpdated;
 
 public:
-    Contact(string uniqueId, string firstName, string lastName, string email, string phoneNumber, string dateCreated) { //constructor because of private
+    Contact(string uniqueId, string firstName, string lastName, string email, string phoneNumber, string dateCreated, string dateUpdated) { //constructor because of private
         this->id = ++counter;
         this->uniqueId = uniqueId;
         this->firstName = firstName;
@@ -29,6 +30,7 @@ public:
         this->email = email;
         this->phoneNumber = phoneNumber;
         this->dateCreated = dateCreated;
+        this->dateUpdated = dateUpdated;
     }
 
     //getters
@@ -52,7 +54,10 @@ public:
     };
     string getDateCreated() {
         return dateCreated;
-    }
+    };
+    string getDateUpdated() {
+        return dateUpdated;
+    };
 
     //setters
     void setFirstName(string& firstName) {
@@ -66,5 +71,8 @@ public:
     };
     void setPhoneNumber(string& phoneNumber) {
         this->phoneNumber = phoneNumber;
+    };
+    void setDateUpdated(string& dateUpdated) {
+        this->dateUpdated = dateUpdated;
     };
 };

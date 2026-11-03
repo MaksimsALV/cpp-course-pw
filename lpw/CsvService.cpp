@@ -9,7 +9,7 @@
 #include "rapidcsv.h" //https://github.com/d99kris/rapidcsv
 using namespace std;
 
-string generateDateCreated(); //declare so csv creation can use timestamp within the file name
+string generateTimestamp(); //declare so csv creation can use timestamp within the file name
 
 void exportContactsToCsv(list<Contact> contactsBook) {
     rapidcsv::Document doc; //creating .csv doc
@@ -36,5 +36,5 @@ void exportContactsToCsv(list<Contact> contactsBook) {
         size_t nextRowIdx = doc.GetRowCount(); //cannot use InsertRow if dont define size_t rows ....
         doc.InsertRow(nextRowIdx, data);
     }
-    doc.Save("contactsExport_" + generateDateCreated() + ".csv"); //reusage of timestamp creation function
+    doc.Save("contactsExport_" + generateTimestamp() + ".csv"); //reusage of timestamp creation function
 }
