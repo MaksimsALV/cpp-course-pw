@@ -53,4 +53,18 @@ public:
     string getDateCreated() {
         return dateCreated;
     }
+
+    //setters
+    void setFirstName(string& firstName) {
+        this->firstName = firstName;
+    };
+    void setLastName(string& lastName) {
+        this->lastName = lastName;
+    };
+    void setEmail(string& email) {
+        this->email = email;
+    };
+    void setPhoneNumber(string& phoneNumber) {
+        this->phoneNumber = phoneNumber;
+    };
 };

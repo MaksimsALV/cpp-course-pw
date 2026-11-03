@@ -20,6 +20,7 @@ using namespace std;
 Contact createContact(); //declare so that it can be reached
 void exportContactsToCsv(list<Contact> contactsBook);
 void removeContact(list<Contact>& contactBook, int id);
+void updateContact(list<Contact>& contactsBook, int id, string firstName, string lastName, string email, string phoneNumber);
 
 int main() {
   //todo menu wip
@@ -67,6 +68,20 @@ int main() {
 
   for (Contact contact : contactsBook) {
     cout << "remove check" <<
+      contact.getId() << " " <<
+      contact.getUniqueId() << " " <<
+      contact.getFirstName() << " " <<
+      contact.getLastName() << " " <<
+      contact.getEmail() << " " <<
+      contact.getPhoneNumber() << " " <<
+      contact.getDateCreated() << endl;
+  }
+
+  //testing update contact logic
+  updateContact(contactsBook, 2, "Maksis", "", "", "");
+
+  for (Contact contact : contactsBook) {
+    cout << "update check" <<
       contact.getId() << " " <<
       contact.getUniqueId() << " " <<
       contact.getFirstName() << " " <<

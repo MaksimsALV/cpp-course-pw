@@ -34,6 +34,27 @@ void removeContact(list<Contact>& contactBook, int id) { //https://www.geeksforg
     }
 }
 
+void updateContact(list<Contact>& contactBook, int id, string firstName, string lastName, string email, string phoneNumber) { //https://www.geeksforgeeks.org/cpp/how-to-replace-an-element-in-a-list-in-cpp/
+    for (auto it = contactBook.begin(); it != contactBook.end(); ++it) {
+        if (it->getId() == id) {
+            //setting new values thanks to my setters in Contact.h. Also using if empty() so that I can pass empty strings to fields I am not tend to update (wanted to do null, but this also works)
+            if (!firstName.empty()) {
+                it->setFirstName(firstName);
+            }
+            if (!lastName.empty()) {
+                it->setLastName(lastName);
+            }
+            if (!email.empty()) {
+                it->setEmail(email);
+            }
+            if (!phoneNumber.empty()) {
+                it->setPhoneNumber(phoneNumber);
+            }
+            //todo dateUpdated
+            break;
+        }
+    }
+}
 
 string generateUniqueId() {
     const string CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
