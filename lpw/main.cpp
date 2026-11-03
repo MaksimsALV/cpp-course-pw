@@ -17,8 +17,9 @@ using namespace std;
 //     return id;
 //   };
 // };
-Contact addContact(); //declare so that it can be reached
+Contact createContact(); //declare so that it can be reached
 void exportContactsToCsv(list<Contact> contactsBook);
+void removeContact(list<Contact>& contactBook, int id);
 
 int main() {
   //todo menu wip
@@ -45,13 +46,27 @@ int main() {
 
 
   list<Contact> contactsBook;
-  for (int i = 0; i < 1; i++) { //enter 5 contacts in a row
-    Contact contact = addContact();
+  for (int i = 0; i < 2; i++) { //enter 5 contacts in a row
+    Contact contact = createContact();
     contactsBook.push_back(contact);
   }
 
   for (Contact contact : contactsBook) {
     cout <<
+      contact.getId() << " " <<
+      contact.getUniqueId() << " " <<
+      contact.getFirstName() << " " <<
+      contact.getLastName() << " " <<
+      contact.getEmail() << " " <<
+      contact.getPhoneNumber() << " " <<
+      contact.getDateCreated() << endl;
+  }
+
+  //testing contact removal logic
+  removeContact(contactsBook, 1);
+
+  for (Contact contact : contactsBook) {
+    cout << "remove check" <<
       contact.getId() << " " <<
       contact.getUniqueId() << " " <<
       contact.getFirstName() << " " <<
