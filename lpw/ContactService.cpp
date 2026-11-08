@@ -22,7 +22,14 @@ Contact createContact() { //helper func for adding contact to the Contact obj
     string dateCreated = generateTimestamp();
     string dateUpdated = generateTimestamp();
 
-    cin >> firstName >> lastName >> email >> phoneNumber;
+    cout << "Enter first name: ";
+    cin >> firstName;
+    cout << "Enter last name: ";
+    cin >> lastName;
+    cout << "Enter email: ";
+    cin >> email;
+    cout << "Enter phone number: ";
+    cin >> phoneNumber;
     return Contact(uniqueId, firstName, lastName, email, phoneNumber, dateCreated, dateUpdated);
 }
 
