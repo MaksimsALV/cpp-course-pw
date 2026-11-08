@@ -16,7 +16,6 @@ add_executable(lpw lpw/main.cpp
         lpw/ContactService.cpp
         lpw/ContactService.cpp
         lpw/CsvService.cpp
-        lpw/MenuService.cpp
 )
 
 #include rapidcsv

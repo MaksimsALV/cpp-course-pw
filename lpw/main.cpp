@@ -27,15 +27,33 @@ int main() {
     cin >> choice;
 
     switch (choice) {
-      case 1: {
+      case 1: { //add
         Contact contact = createContact();
         contactsBook.push_back(contact);
         cout << "Contact added" << endl;
         break;
       }
-      case 2: {
+      case 2: { //update
         int id;
         string firstName, lastName, email, phoneNumber;
+
+        if (contactsBook.empty()) {
+          cout << "Contacts book is empty" << endl;
+          break;
+        } else {
+          for (Contact contact : contactsBook) {
+            cout <<
+              contact.getId() << " " <<
+              contact.getUniqueId() << " " <<
+              contact.getFirstName() << " " <<
+              contact.getLastName() << " " <<
+              contact.getEmail() << " " <<
+              contact.getPhoneNumber() << " " <<
+              contact.getDateCreated() << " " <<
+              contact.getDateUpdated() << endl;
+          }
+        }
+
         cout << "Enter id of contact you want to update: ";
         cin >> id;
         cout << "Enter first name or empty press enter: ";
@@ -50,17 +68,36 @@ int main() {
         cout << "Contact updated" << endl;
         break;
       }
-      case 3: {
+      case 3: { //remove
         int id;
+
+        if (contactsBook.empty()) {
+          cout << "Contacts book is empty" << endl;
+          break;
+        } else {
+          for (Contact contact : contactsBook) {
+            cout <<
+              contact.getId() << " " <<
+              contact.getUniqueId() << " " <<
+              contact.getFirstName() << " " <<
+              contact.getLastName() << " " <<
+              contact.getEmail() << " " <<
+              contact.getPhoneNumber() << " " <<
+              contact.getDateCreated() << " " <<
+              contact.getDateUpdated() << endl;
+          }
+        }
+
         cout << "Enter id of contact you want to remove" << endl;
         cin >> id;
         removeContact(contactsBook, id);
         cout << "Contact removed" << endl;
         break;
       }
-      case 4: {
+      case 4: { //view
         if (contactsBook.empty()) {
           cout << "Contacts book is empty" << endl;
+          break;
         } else {
           for (Contact contact : contactsBook) {
             cout <<
@@ -79,6 +116,7 @@ int main() {
       case 5: {
         if (contactsBook.empty()) {
           cout << "Contacts book is empty" << endl;
+          break;
         } else {
           cout << "Export all contacts into CSV..." << endl;
           exportContactsToCsv(contactsBook);
