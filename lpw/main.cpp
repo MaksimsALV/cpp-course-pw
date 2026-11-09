@@ -2,6 +2,7 @@
 #include <list>
 #include <string>
 #include "Contact.h" //separate file for Contact class . for readability and code management
+
 using namespace std;
 
 //declares
@@ -9,122 +10,44 @@ Contact createContact();
 void exportContactsToCsv(list<Contact> contactsBook);
 void removeContact(list<Contact>& contactBook, int id);
 void updateContact(list<Contact>& contactsBook, int id, string firstName, string lastName, string email, string phoneNumber);
+void mainMenuNavigation();
+void menuActionAddContact(list<Contact>& contactsBook);
+void menuActionUpdateContact(list<Contact>& contactsBook);
+void menuActionRemoveContact(list<Contact>& contactsBook);
+void menuActionViewContacts(list<Contact>& contactsBook);
+void menuActionExportContacts(list<Contact>& contactsBook);
 
 int main() {
   list<Contact> contactsBook;
-
   int choice;
 
   do {
-    cout << "\n" << endl;
-    cout << "Enter 1 to add new contact" << endl;
-    cout << "Enter 2 to update new contact" << endl;
-    cout << "Enter 3 to remove new contact" << endl;
-    cout << "Enter 4 to view all contacts" << endl;
-    cout << "Enter 5 to export all contacts into CSV" << endl;
-    cout << "Enter 0 to quit the program" << endl;
+    mainMenuNavigation();
 
     cin >> choice;
 
     switch (choice) {
       case 1: { //add
-        Contact contact = createContact();
-        contactsBook.push_back(contact);
-        cout << "Contact added" << endl;
+        menuActionAddContact(contactsBook);
         break;
       }
       case 2: { //update
-        int id;
-        string firstName, lastName, email, phoneNumber;
-
-        if (contactsBook.empty()) {
-          cout << "Contacts book is empty" << endl;
-          break;
-        } else {
-          for (Contact contact : contactsBook) {
-            cout <<
-              contact.getId() << " " <<
-              contact.getUniqueId() << " " <<
-              contact.getFirstName() << " " <<
-              contact.getLastName() << " " <<
-              contact.getEmail() << " " <<
-              contact.getPhoneNumber() << " " <<
-              contact.getDateCreated() << " " <<
-              contact.getDateUpdated() << endl;
-          }
-        }
-
-        cout << "Enter id of contact you want to update: ";
-        cin >> id;
-        cout << "Enter first name or empty press enter: ";
-        cin >> firstName;
-        cout << "Enter last name or empty press enter: ";
-        cin >> lastName;
-        cout << "Enter email or empty press enter: ";
-        cin >> email;
-        cout << "Enter phone number or empty press enter: ";
-        cin >> phoneNumber;
-        updateContact(contactsBook, id, firstName, lastName, email, phoneNumber);
-        cout << "Contact updated" << endl;
+        menuActionUpdateContact(contactsBook);
         break;
       }
       case 3: { //remove
-        int id;
-
-        if (contactsBook.empty()) {
-          cout << "Contacts book is empty" << endl;
-          break;
-        } else {
-          for (Contact contact : contactsBook) {
-            cout <<
-              contact.getId() << " " <<
-              contact.getUniqueId() << " " <<
-              contact.getFirstName() << " " <<
-              contact.getLastName() << " " <<
-              contact.getEmail() << " " <<
-              contact.getPhoneNumber() << " " <<
-              contact.getDateCreated() << " " <<
-              contact.getDateUpdated() << endl;
-          }
-        }
-
-        cout << "Enter id of contact you want to remove" << endl;
-        cin >> id;
-        removeContact(contactsBook, id);
-        cout << "Contact removed" << endl;
+        menuActionRemoveContact(contactsBook);
         break;
       }
       case 4: { //view
-        if (contactsBook.empty()) {
-          cout << "Contacts book is empty" << endl;
-          break;
-        } else {
-          for (Contact contact : contactsBook) {
-            cout <<
-              contact.getId() << " " <<
-              contact.getUniqueId() << " " <<
-              contact.getFirstName() << " " <<
-              contact.getLastName() << " " <<
-              contact.getEmail() << " " <<
-              contact.getPhoneNumber() << " " <<
-              contact.getDateCreated() << " " <<
-              contact.getDateUpdated() << endl;
-          }
-        }
+        menuActionViewContacts(contactsBook);
         break;
       }
-      case 5: {
-        if (contactsBook.empty()) {
-          cout << "Contacts book is empty" << endl;
-          break;
-        } else {
-          cout << "Export all contacts into CSV..." << endl;
-          exportContactsToCsv(contactsBook);
-          cout << "Export all contacts into CSV complete" << endl;
-          break;
-        }
+      case 5: { //export
+        menuActionExportContacts(contactsBook);
+        break;
       }
-      case 0: {
+      case 0: { //quit
         cout << "Exiting program..." << endl;
         return 0;
       }
