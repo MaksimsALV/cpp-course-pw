@@ -22,6 +22,7 @@ void exportContactsToCsv(list<Contact> contactsBook) {
     doc.SetColumnName(4, "email");
     doc.SetColumnName(5, "phoneNumber");
     doc.SetColumnName(6, "dateCreated");
+    doc.SetColumnName(7, "dateUpdated");
 
     for (Contact contact : contactsBook) {
         vector data = { //by reading their github docs, seems that rapidcsv wants vector. other solutions doesnt seems to work.
@@ -31,7 +32,8 @@ void exportContactsToCsv(list<Contact> contactsBook) {
             contact.getLastName(),
             contact.getEmail(),
             contact.getPhoneNumber(),
-            contact.getDateCreated()
+            contact.getDateCreated(),
+            contact.getDateUpdated()
           };
         size_t nextRowIdx = doc.GetRowCount(); //cannot use InsertRow if dont define size_t rows ....
         doc.InsertRow(nextRowIdx, data);
